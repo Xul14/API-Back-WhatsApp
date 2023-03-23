@@ -5,8 +5,6 @@
 * Versão: 1.0
 ***********************************************************************/
 
-import {contatos} from './modulo/index.js'
-
 const express = require('express')
 const cors = require('cors')
 const bodyParser = require('body-parser')
@@ -30,7 +28,7 @@ app.use((request, response, next) => {
 
 })
 
-app.get('/v1/senai/contatos/id', cors(), async function(request, resonse, next){
+app.get('/v1/senai/perfil/id/:id', cors(), async function(request, response, next){
     let idPerfil = request.params.id
     let statusCode
     let dadosPerfil = {}
@@ -55,8 +53,8 @@ app.get('/v1/senai/contatos/id', cors(), async function(request, resonse, next){
 
 })
 
-app.get('/v1/senai/contatos/numero-telefone', cors(), async function(request, resonse, next){
-    let numeroTelefone = request.query.telefone
+app.get('/v1/senai/perfil/numero-telefone/:telefone', cors(), async function(request, response, next){
+    let numeroTelefone = request.params.telefone
     let statusCode
     let dadosPerfil = {}
 
